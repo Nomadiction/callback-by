@@ -1,0 +1,77 @@
+[
+  {
+    "url": "https://holodilnik.by",
+    "category": "electronics",
+    "enabled": true
+  },
+  {
+    "url": "https://belveb.by",
+    "category": "bank",
+    "enabled": true
+  },
+  {
+    "url": "https://gippo.by",
+    "category": "grocery",
+    "enabled": true
+  },
+  {
+    "url": "https://pinskdrev.by",
+    "category": "furniture",
+    "enabled": true
+  },
+  {
+    "url": "https://e-pos.by",
+    "category": "services",
+    "enabled": true
+  },
+  {
+    "url": "https://zvonko.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://tboservice.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://zap.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mts.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://po.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://1net.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://beluntorg.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://7200.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://tws.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://rusmet.by",
+    "category": "discovered",
+    "enabled": true
+  }
+]

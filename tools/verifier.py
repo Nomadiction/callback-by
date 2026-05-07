@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 import httpx
 from playwright.async_api import BrowserContext, TimeoutError as PWTimeoutError
 
-from src.form_finder import find_form
+from src.form_finder import find_form, has_captcha
 
 PROBE_TIMEOUT = 8.0
 PAGE_TIMEOUT_MS = 15_000  # Оптимизирован таймаут
@@ -77,9 +77,18 @@ async def probe_form(url: str, ctx: BrowserContext) -> tuple[bool, str]:
         except PWTimeoutError:
             pass
         try:
-            handle = await asyncio.wait_for(find_form(page), timeout=20.0)
+            if await has_captcha(page):
+                return False, "captcha detected"
+        except Exception:
+            pass
+        try:
+            handle = await asyncio.wait_for(
+                find_form(page, budget_sec=14.0), timeout=18.0
+            )
         except asyncio.TimeoutError:
             return False, "form-finder timeout"
+        except Exception as e:
+            return False, f"finder error: {type(e).__name__}"
         if handle is None:
             return False, "no callback form"
         return True, ""

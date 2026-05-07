@@ -4,6 +4,7 @@ import asyncio
 import io
 import logging
 import queue
+import random
 import threading
 from collections import Counter
 from datetime import datetime
@@ -182,6 +183,74 @@ div[data-testid="stExpander"] {
     font-size: 0.86rem;
     line-height: 1.45;
 }
+.cb-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(280px, 1fr);
+    gap: 14px;
+    margin: 10px 0 18px;
+}
+.cb-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid var(--cb-border);
+    border-radius: 16px;
+    padding: 18px 18px 16px;
+}
+.cb-panel h3, .cb-panel h4 {
+    margin: 0 0 8px;
+}
+.cb-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+.cb-kpi {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 12px;
+}
+.cb-kpi .label {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--cb-text-soft);
+}
+.cb-kpi .value {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-top: 3px;
+}
+.cb-list {
+    margin: 8px 0 0;
+    padding-left: 1rem;
+    color: var(--cb-text-soft);
+}
+.cb-list li { margin: 0.18rem 0; }
+.cb-queue {
+    border: 1px dashed rgba(255, 255, 255, 0.14);
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.02);
+}
+.cb-queue code {
+    display: inline-block;
+    margin: 2px 0;
+}
+.cb-side-note {
+    color: var(--cb-text-soft);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    padding: 10px 12px;
+    border: 1px solid var(--cb-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 12px;
+}
+@media (max-width: 980px) {
+    .cb-hero { grid-template-columns: 1fr; }
+    .cb-kpis { grid-template-columns: 1fr; }
+}
 </style>
 """
 
@@ -315,12 +384,41 @@ def _stats_html(stats: dict) -> str:
     return f'<div class="cb-stats">{blocks}</div>'
 
 
+def _preview_urls(urls: list[str], limit: int) -> list[str]:
+    return urls[: max(0, limit)]
+
+
+def _top_categories_html(cats: Counter, limit: int = 5) -> str:
+    items = cats.most_common(limit)
+    if not items:
+        return '<span class="cb-pill">нет категорий</span>'
+    return " ".join(
+        f'<span class="cb-pill" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);">{name}: {count}</span>'
+        for name, count in items
+    )
+
+
+def _build_send_queue(urls: list[str], mode: str, limit: int, seed: int) -> list[str]:
+    safe_limit = max(0, limit)
+    if mode == "Случайная выборка":
+        shuffled = list(urls)
+        random.Random(seed).shuffle(shuffled)
+        return shuffled[:safe_limit]
+    if mode == "Последние добавленные":
+        return list(reversed(urls))[:safe_limit]
+    return urls[:safe_limit]
+
+
 # ────────────────────────────────────────────────────────────────────
 # sidebar
 
 
 def render_sidebar() -> tuple[RunSettings, bool]:
     st.sidebar.markdown("### ⚙️ Настройки прогона")
+    st.sidebar.markdown(
+        '<div class="cb-side-note">В сайдбаре оставлены только общие режимы запуска. Точный объём отправки задаётся в экране рассылки.</div>',
+        unsafe_allow_html=True,
+    )
 
     headless = not st.sidebar.toggle(
         "Показать окно браузера", value=False,
@@ -330,10 +428,6 @@ def render_sidebar() -> tuple[RunSettings, bool]:
         "Пауза между сайтами, сек", 1.0, 10.0, (2.0, 5.0), 0.5,
         help="Случайная пауза снижает нагрузку и риск блокировок",
     )
-    max_sites = st.sidebar.number_input(
-        "Макс. сайтов за прогон", min_value=1, max_value=300, value=20, step=1,
-    )
-
     st.sidebar.divider()
     st.sidebar.markdown("### 🛠 Параметры обслуживания")
     concurrency = st.sidebar.slider(
@@ -365,7 +459,7 @@ def render_sidebar() -> tuple[RunSettings, bool]:
         headless=headless,
         pause_min=float(pause_min),
         pause_max=float(pause_max),
-        max_sites=int(max_sites),
+        max_sites=20,
         discover_new=False,
     )
     setattr(settings, "concurrency", int(concurrency))
@@ -397,17 +491,27 @@ def render_topbar():
 
 
 def render_send_tab(settings: RunSettings, confirmed: bool):
+    state = st.session_state
+    state.setdefault("send_phone_raw", "")
+    state.setdefault("send_message", "")
+    state.setdefault("send_cat_filter", [])
+    state.setdefault("send_mode", "Первые по списку")
+    state.setdefault("send_shuffle_seed", 42)
+    state.setdefault("send_limit", settings.max_sites)
+
     st.markdown("#### 📞 Параметры рассылки")
     col1, col2 = st.columns([1, 2])
     with col1:
         phone_raw = st.text_input(
             "Номер телефона",
+            key="send_phone_raw",
             placeholder="+375 29 123 45 67",
             help="Принимаются форматы +375…, 80…, 9 цифр без кода",
         )
     with col2:
         message = st.text_area(
             "Сообщение (опционально)",
+            key="send_message",
             placeholder="Например: Добрый день, прошу перезвонить для консультации.",
             height=90,
         )
@@ -418,7 +522,8 @@ def render_send_tab(settings: RunSettings, confirmed: bool):
     cat_filter = st.multiselect(
         "Фильтр по категориям (пусто = все включённые)",
         sorted(cats.keys()),
-        default=[],
+        default=state["send_cat_filter"],
+        key="send_cat_filter",
         help="Выбери, чтобы ограничить рассылку конкретными категориями",
     )
     if cat_filter:
@@ -426,15 +531,95 @@ def render_send_tab(settings: RunSettings, confirmed: bool):
     else:
         target_urls = [s["url"] for s in enabled]
 
-    queue_count = min(len(target_urls), settings.max_sites)
+    queue_mode, random_seed = st.columns([2, 1])
+    with queue_mode:
+        send_mode = st.selectbox(
+            "Как сформировать очередь",
+            ["Первые по списку", "Случайная выборка", "Последние добавленные"],
+            index=["Первые по списку", "Случайная выборка", "Последние добавленные"].index(state["send_mode"]),
+            key="send_mode",
+            help="Позволяет гибко выбрать, какие сайты попадут в прогон после фильтра по категориям.",
+        )
+    with random_seed:
+        shuffle_seed = st.number_input(
+            "Seed",
+            min_value=1,
+            max_value=999999,
+            value=state["send_shuffle_seed"],
+            step=1,
+            key="send_shuffle_seed",
+            help="Используется только для случайной выборки, чтобы повторять тот же набор при необходимости.",
+        )
+
+    send_limit = st.number_input(
+        "Сколько сайтов отправить в этом прогоне",
+        min_value=1,
+        max_value=max(1, min(300, len(target_urls) or 300)),
+        value=min(int(state["send_limit"]), max(1, len(target_urls) or settings.max_sites)),
+        step=1,
+        key="send_limit",
+        help=(
+            "Явный лимит текущего прогона. В очередь попадут только первые N URL "
+            "из текущей выборки после фильтра по категориям."
+        ),
+    )
+    settings.max_sites = int(send_limit)
+
+    selected_urls = _build_send_queue(
+        target_urls,
+        send_mode,
+        settings.max_sites,
+        int(shuffle_seed),
+    )
+    queue_count = len(selected_urls)
+    preview_urls = _preview_urls(selected_urls, queue_count)
+    preview_set = set(preview_urls)
+    preview_cats = Counter(
+        s.get("category", "—") for s in enabled if s.get("url") in preview_set
+    )
+
+    st.markdown(
+        (
+            '<div class="cb-hero">'
+            '<div class="cb-panel">'
+            '<h3>Готовность к рассылке</h3>'
+            '<div class="cb-help">'
+            'Экран рассчитан на короткие и контролируемые прогоны. '
+            'Сначала сформируй выборку, затем зафиксируй точный лимит и только после этого запускай отправку.'
+            '</div>'
+            '<div class="cb-kpis">'
+            f'<div class="cb-kpi"><div class="label">В выборке</div><div class="value">{len(target_urls)}</div></div>'
+            f'<div class="cb-kpi"><div class="label">В очереди</div><div class="value">{queue_count}</div></div>'
+            f'<div class="cb-kpi"><div class="label">Пауза</div><div class="value">{settings.pause_min:.1f}-{settings.pause_max:.1f}с</div></div>'
+            '</div>'
+            '<ul class="cb-list">'
+            f'<li>Номер: <b>{"указан" if phone_raw else "не указан"}</b></li>'
+            f'<li>Согласие: <b>{"подтверждено" if confirmed else "требуется"}</b></li>'
+            f'<li>Категории: <b>{", ".join(cat_filter) if cat_filter else "все включённые"}</b></li>'
+            f'<li>Режим очереди: <b>{send_mode}</b></li>'
+            '</ul>'
+            '</div>'
+            '<div class="cb-panel">'
+            '<h4>Предпросмотр очереди</h4>'
+            f'<div style="margin-bottom:10px;">{_top_categories_html(preview_cats)}</div>'
+            '<div class="cb-queue">'
+            + ("<br>".join(f"<code>{url}</code>" for url in preview_urls[:8]) if preview_urls else '<span class="cb-help">Нет сайтов для отправки</span>')
+            + (f'<div class="cb-help" style="margin-top:8px;">ещё {len(preview_urls) - 8} URL в этом прогоне</div>' if len(preview_urls) > 8 else '')
+            + '</div>'
+            '</div>'
+            '</div>'
+        ),
+        unsafe_allow_html=True,
+    )
+
     st.caption(
         f"В очереди: **{queue_count}** из {len(target_urls)} включённых · "
-        f"лимит за прогон: {settings.max_sites}"
+        f"лимит за прогон: {settings.max_sites} · режим: {send_mode}"
     )
 
     if not confirmed:
         st.warning("⚠️ Подтверди согласие в боковой панели, чтобы активировать кнопку.")
-    can_run = bool(phone_raw) and bool(target_urls) and confirmed
+    can_run = bool(phone_raw) and bool(selected_urls) and confirmed
 
     if st.button(
         "🚀 Запустить рассылку",
@@ -449,7 +634,7 @@ def render_send_tab(settings: RunSettings, confirmed: bool):
             return
         settings.phone = normalized
         settings.message = message
-        queue_count = min(len(target_urls), settings.max_sites)
+        queue_count = len(selected_urls)
         st.info(
             f"Канонический номер: `{normalized}` · "
             f"сайтов в очереди: {queue_count}"
@@ -458,7 +643,7 @@ def render_send_tab(settings: RunSettings, confirmed: bool):
         progress = st.progress(0.0, text="Старт…")
         live_table = st.empty()
         results_state: list[SiteResult] = []
-        total = min(len(target_urls), settings.max_sites)
+        total = len(selected_urls)
 
         def on_progress(res: SiteResult):
             results_state.append(res)
@@ -475,7 +660,7 @@ def render_send_tab(settings: RunSettings, confirmed: bool):
 
         try:
             results = _run_async(
-                lambda: run_pipeline(target_urls, settings, on_progress=on_progress)
+                lambda: run_pipeline(selected_urls, settings, on_progress=on_progress)
             )
         except Exception as e:
             st.error(f"Ошибка прогона: {e!r}")
@@ -553,6 +738,41 @@ def render_sites_tab():
     elif status == "отключённые":
         rows = [r for r in rows if not r.get("enabled")]
 
+    filtered_stats = _stats(rows)
+    filtered_cats = Counter(r.get("category", "—") for r in rows)
+    st.markdown(
+        (
+            '<div class="cb-hero">'
+            '<div class="cb-panel">'
+            '<h3>Рабочая выборка списка</h3>'
+            '<div class="cb-help">'
+            'Фильтры управляют только текущим представлением. Массовые действия ниже '
+            'применяются именно к отображённой выборке, а не ко всему файлу.'
+            '</div>'
+            '<div class="cb-kpis">'
+            f'<div class="cb-kpi"><div class="label">Показано</div><div class="value">{len(rows)}</div></div>'
+            f'<div class="cb-kpi"><div class="label">Активны</div><div class="value">{filtered_stats["enabled"]}</div></div>'
+            f'<div class="cb-kpi"><div class="label">Категорий</div><div class="value">{len(filtered_cats)}</div></div>'
+            '</div>'
+            '<ul class="cb-list">'
+            f'<li>Поиск: <b>{search if search else "не задан"}</b></li>'
+            f'<li>Категория: <b>{cat}</b></li>'
+            f'<li>Статус: <b>{status}</b></li>'
+            '</ul>'
+            '</div>'
+            '<div class="cb-panel">'
+            '<h4>Срез категорий</h4>'
+            f'<div style="margin-bottom:10px;">{_top_categories_html(filtered_cats)}</div>'
+            '<div class="cb-queue">'
+            + ("<br>".join(f"<code>{row['url']}</code>" for row in rows[:8]) if rows else '<span class="cb-help">Фильтры не вернули ни одного сайта</span>')
+            + (f'<div class="cb-help" style="margin-top:8px;">ещё {len(rows) - 8} URL в текущем представлении</div>' if len(rows) > 8 else '')
+            + '</div>'
+            '</div>'
+            '</div>'
+        ),
+        unsafe_allow_html=True,
+    )
+
     st.caption(f"Показано **{len(rows)}** из {len(sites)} сайтов")
 
     df = pd.DataFrame(rows)
@@ -577,6 +797,14 @@ def render_sites_tab():
         use_container_width=True,
         hide_index=True,
         key="sites_editor",
+    )
+
+    st.markdown(
+        '<div class="cb-help">'
+        'Сначала при необходимости редактируй строки в таблице, затем сохраняй. '
+        'Кнопки массовых действий ниже работают по текущему отфильтрованному набору.'
+        '</div>',
+        unsafe_allow_html=True,
     )
 
     a1, a2, a3, a4 = st.columns(4)
@@ -663,6 +891,40 @@ def render_sites_tab():
 def render_maintenance_tab(settings: RunSettings):
     concurrency = getattr(settings, "concurrency", 3)
     headless = settings.headless
+    sites = load_sites()
+    overview = _stats(sites)
+    exclusions_count = _exclusions_count()
+
+    st.markdown(
+        (
+            '<div class="cb-hero">'
+            '<div class="cb-panel">'
+            '<h3>Контур обслуживания базы</h3>'
+            '<div class="cb-help">Здесь собраны очистка текущего списка, рост базы и точечные правки. Рекомендуемый цикл: verify, затем grow, потом ручные корректировки.</div>'
+            '<div class="cb-kpis">'
+            f'<div class="cb-kpi"><div class="label">Всего сайтов</div><div class="value">{overview["total"]}</div></div>'
+            f'<div class="cb-kpi"><div class="label">Активны</div><div class="value">{overview["enabled"]}</div></div>'
+            f'<div class="cb-kpi"><div class="label">Исключения</div><div class="value">{exclusions_count}</div></div>'
+            '</div>'
+            '<ul class="cb-list">'
+            f'<li>Headless: <b>{"да" if headless else "нет"}</b></li>'
+            f'<li>Параллельность verify/grow: <b>{concurrency}</b></li>'
+            f'<li>Категорий в базе: <b>{len(overview["categories"])}</b></li>'
+            '</ul>'
+            '</div>'
+            '<div class="cb-panel">'
+            '<h4>Рабочий порядок</h4>'
+            '<div class="cb-queue">'
+            '<code>1. verify_all()</code><br>'
+            '<code>2. grow()</code><br>'
+            '<code>3. quick add / exclusions cleanup</code>'
+            '<div class="cb-help" style="margin-top:8px;">Так меньше шума в основном списке и меньше повторной проверки явно плохих доменов.</div>'
+            '</div>'
+            '</div>'
+            '</div>'
+        ),
+        unsafe_allow_html=True,
+    )
 
     # ── Verify ────────────────────────────────────────────────────
     st.markdown("#### 🔄 Верификация существующего списка")
@@ -745,12 +1007,20 @@ def render_maintenance_tab(settings: RunSettings):
         'в <code>sites.json</code> попадают только домены с реальной формой.</div>',
         unsafe_allow_html=True,
     )
-    g1, g2 = st.columns([1, 1])
+    g1, g2, g3 = st.columns([1, 1, 1])
     target = g1.number_input(
-        "Целевое количество включённых сайтов",
+        "Цель: включённых сайтов",
         min_value=10, max_value=1000, value=300, step=10,
     )
-    if g2.button(
+    max_empty = g2.number_input(
+        "Стоп после N пустых раундов",
+        min_value=3, max_value=100, value=15, step=1,
+        help=(
+            "Сколько подряд запросов без новых доменов прервёт цикл. "
+            "Раньше было 5 — поднято до 15."
+        ),
+    )
+    if g3.button(
         "🌱 Запустить рост списка",
         type="primary",
         use_container_width=True,
@@ -779,8 +1049,11 @@ def render_maintenance_tab(settings: RunSettings):
                     stats["current"] = payload["current"]
                     q_idx = payload.get("q_idx", "?")
                     q_total = payload.get("q_total", "?")
+                    pass_idx = payload.get("pass_idx")
+                    pass_total = payload.get("pass_total")
+                    pass_prefix = f'pass {pass_idx}/{pass_total} · ' if pass_idx and pass_total else ''
                     lines.append(
-                        f'<span class="q">[{q_idx}/{q_total}] '
+                        f'<span class="q">{pass_prefix}[{q_idx}/{q_total}] '
                         f'🔎 {payload["query"]}</span>'
                     )
                 elif event == "query_done":
@@ -818,6 +1091,11 @@ def render_maintenance_tab(settings: RunSettings):
                         f'<span class="bad">  ✗ {payload["domain"]}</span> '
                         f'<span class="neutral">— {payload["reason"]}</span>'
                     )
+                elif event == "browser_recycled":
+                    lines.append(
+                        f'<span class="neutral">  ↻ браузер перезапущен '
+                        f'после {payload.get("after")} кандидатов</span>'
+                    )
                 elif event == "finished":
                     stats["skipped_excluded"] = payload.get(
                         "skipped_excluded", 0,
@@ -829,7 +1107,8 @@ def render_maintenance_tab(settings: RunSettings):
                         f'пропущено как уже исключённые '
                         f'<span class="neutral">'
                         f'{payload.get("skipped_excluded", 0)}</span>, '
-                        f'в файле {payload["total"]}'
+                        f'в файле {payload["total"]} '
+                        f'<span class="neutral">(stop: {payload.get("stop_reason", "unknown")})</span>'
                     )
                 render_state()
 
@@ -843,6 +1122,7 @@ def render_maintenance_tab(settings: RunSettings):
                     headless=headless,
                     concurrency=concurrency,
                     on_progress=_wrapped,
+                    max_empty_rounds=int(max_empty),
                 )
 
             try:
@@ -854,7 +1134,8 @@ def render_maintenance_tab(settings: RunSettings):
                 label=(
                     f"Готово: +{summary['new_good']} живых · "
                     f"отсеяно {summary['skipped']} · "
-                    f"пропущено {summary.get('skipped_excluded', 0)}"
+                    f"пропущено {summary.get('skipped_excluded', 0)} · "
+                    f"stop: {summary.get('stop_reason', 'unknown')}"
                 ),
                 state="complete",
             )

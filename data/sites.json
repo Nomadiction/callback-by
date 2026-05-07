@@ -73,5 +73,870 @@
     "url": "https://rusmet.by",
     "category": "discovered",
     "enabled": true
+  },
+  {
+    "url": "https://atevi.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://hpc.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://shefkuhni.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://zovtorg-mebel.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://d2club.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://kuhni-doma.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://allo-potolki.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://minskiepotolki.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://metr2.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://white-sky.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mikon.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://3dpotolok.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://impo.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://megaservice.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://primemotorservice.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://service.feloct.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://fvs-service.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://btsa.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://imperiacoffee.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://postplus.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://brestwin.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://toroka.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://minsk-lida.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mabilachka.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://alenagoretskayashop.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://belorismoda.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://anmix.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://alfa-mebel.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://furniflex.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mebel-nazakaz.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mobymebel.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://vozvedem.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://komfort-dom.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://tiptop-house.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://vsemaster.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://remont-7.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://artstroy.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://allrem.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://master-service.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://yuts.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://navseruki.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://minsk-santehnik.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://santehnik-minsk.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://santehnik.minsk.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://bydom.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://storyflowers.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://atur.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://datatour.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://chilli.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://i-tours.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://gruzoboy.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://gruzoperevozki24.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://strategiya-perevozok.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://movcar.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://vse-vozim.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mkgruz.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://tarakay.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://povezu.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://alfaclean.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://greencleaning.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://lepei.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://cleanall.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://clean24.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://clean-tok.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://cleanbase.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://recool.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://vizitok.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://masterprint.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://allpol.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://beleksprint.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://salamandra.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://plutos.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://antiqua.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://24print.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ksen-ri.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://komandir.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://westgroup.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://arendavto.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://l2d.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://taxibel.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://b2b.135.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://koris.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://medavenu.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mercimed.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://sante.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://evaclinic.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://praxis.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://smartmedical.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://anikamed.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://proudclinic.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://horizont-med.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://grandmedica.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://stomtravel.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://everestdent.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mysmile.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://psyprosto-help.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://dushaved.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://annaivanova.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://metaclinic.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://maramed.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://klinik.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://medklinik.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://confidence.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://doctorprofi.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://resursmed.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://implant-center.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://kdoktoru.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://stomarus.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://doctorsmile.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://healthymind.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://vitever.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://labriz.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skinexpert.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://zroba.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualnye-uslugy.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://spec-ritual.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualhelp.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualnye-uslugi-minsk.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://pohoronim.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritdusha.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualcompany.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualburo.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://pohoronnoe-byro.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://pohoron.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritual-biuro.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritual-vera.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualrb.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritual-help.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualy.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://pamiat.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://siriys.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://elz.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://8angelov.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://zooport.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://zapomnim.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://pokoy.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://kremaciya.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://triant.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://anhelava.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mokc.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://pravocom.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://jurisprudent.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://arlepta.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://buhuslugi.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://softbuhpluse.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://buhexpert.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://profiked.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://mmbuh.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skupaem.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skypka-tehniki.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://proskupka.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://crediton.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skypka.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://top-price.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://technostock.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://smart-skupka.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skypaem.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://itkomp.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://vikup-tech.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://100nout.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://1skupka.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://tehrem.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skupka24.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://roden.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://clinicalcenter.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualsluzba.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritualcom.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://organizaciya-pohoron.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://ritual-minsk.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://belrit.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://belvti.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://skupka43.by",
+    "category": "discovered",
+    "enabled": true
+  },
+  {
+    "url": "https://zakypka.by",
+    "category": "discovered",
+    "enabled": true
   }
 ]

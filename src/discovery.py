@@ -1,13 +1,12 @@
-"""Поиск .by-кандидатов: httpx + BeautifulSoup, без Playwright.
+"""Поиск .by-кандидатов через стелс-Playwright + curl_cffi с TLS impersonation.
 
-Старый Playwright-скрап на duckduckgo.com был хрупким: страница часто
-показывала анти-бот заглушку и DDG возвращал лишь header/footer-ссылки.
+Главные источники blocking-обхода:
+1. tf-playwright-stealth: патч navigator.webdriver, plugins, languages, WebGL.
+2. curl_cffi (impersonate=chrome): TLS/JA3-отпечаток реального Chrome.
+3. Случайные UA, человекоподобные паузы, скролл, Referer.
 
-Новый подход:
-1. POST `https://html.duckduckgo.com/html/` (lite-версия, без JS).
-2. Если получен 202 (challenge) — экспоненциальный backoff и retry.
-3. Если N попыток подряд провалились — fallback на Bing HTML.
-4. Парсим с BeautifulSoup, фильтруем по `.by` и эвристикам исключений.
+Стратегия: пробуем движки в порядке Bing → DDG → Yandex, на каждом
+сначала curl_cffi, потом стелс-Playwright. Возвращаем первый непустой.
 """
 from __future__ import annotations
 
@@ -16,26 +15,36 @@ import logging
 import random
 import re
 from typing import Iterable
-from urllib.parse import parse_qs, unquote, urlparse
+from urllib.parse import parse_qs, quote_plus, unquote, urlparse
 
-import httpx
-from bs4 import BeautifulSoup
+from playwright.async_api import (
+    BrowserContext,
+    Page,
+    TimeoutError as PWTimeoutError,
+)
+
+try:
+    from playwright_stealth import Stealth
+    _STEALTH = Stealth()
+except Exception:  # pragma: no cover
+    _STEALTH = None
+
+try:
+    from curl_cffi import requests as cffi_requests
+    _CFFI_OK = True
+except Exception:  # pragma: no cover
+    cffi_requests = None
+    _CFFI_OK = False
 
 log = logging.getLogger(__name__)
 
-DDG_HTML_URL = "https://html.duckduckgo.com/html/"
-DDG_LITE_URL = "https://lite.duckduckgo.com/lite/"
-BING_URL = "https://www.bing.com/search"
-
-DDG_URL = "https://duckduckgo.com/"
-
 USER_AGENTS = [
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-    "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 "
-    "Firefox/122.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 "
-    "(KHTML, like Gecko) Version/17.3 Safari/605.1.15",
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:126.0) Gecko/20100101 "
+    "Firefox/126.0",
 ]
 
 HEADERS = {
@@ -54,11 +63,49 @@ EXCLUDE_DOMAINS = {
     "twitter.com", "x.com", "t.me", "telegram.org",
     "ok.ru", "linkedin.com", "tiktok.com", "pinterest.com",
     "av.by", "kufar.by",
+    "translate.google.com", "webcache.googleusercontent.com",
+    "go.microsoft.com", "support.microsoft.com",
 }
+
+PAGE_GOTO_TIMEOUT_MS = 25_000
+NETWORK_IDLE_MS = 5_000
+
+
+_URL_ENCODED_JUNK_RE = re.compile(r"^(2[fdcb]|3[ab]|252[fdcb])", re.I)
+
+
+def _domain_root(url: str) -> str | None:
+    try:
+        netloc = urlparse(url).netloc.lower()
+    except Exception:
+        return None
+    netloc = re.sub(r"^www\.", "", netloc)
+    netloc = netloc.split(":", 1)[0]
+    if not netloc.endswith(".by"):
+        return None
+    if netloc in EXCLUDE_DOMAINS:
+        return None
+    prefix = netloc[:-3]
+    if not prefix or prefix.endswith("."):
+        return None
+    if _URL_ENCODED_JUNK_RE.match(prefix.split(".")[0]):
+        return None
+    if not re.match(r"^[a-z]", prefix):
+        return None
+    return netloc
+
+
+def _dedup(items: Iterable[str]) -> list[str]:
+    seen: set[str] = set()
+    out: list[str] = []
+    for x in items:
+        if x and x not in seen:
+            seen.add(x)
+            out.append(x)
+    return out
 
 
 def _extract_real_url(href: str) -> str | None:
-    """DDG HTML отдаёт редиректы вида /l/?uddg=<encoded>. Возвращает реальный URL."""
     if not href:
         return None
     if href.startswith("//"):
@@ -76,150 +123,345 @@ def _extract_real_url(href: str) -> str | None:
     return None
 
 
-def _domain_root(url: str) -> str | None:
-    try:
-        netloc = urlparse(url).netloc.lower()
-    except Exception:
-        return None
-    netloc = re.sub(r"^www\.", "", netloc)
-    netloc = netloc.split(":", 1)[0]
-    if not netloc.endswith(".by"):
-        return None
-    if netloc in EXCLUDE_DOMAINS:
-        return None
-    prefix = netloc[:-3]
-    if not prefix or prefix.endswith("."):
-        return None
-    return netloc
-
-
-def _dedup(items: Iterable[str]) -> list[str]:
-    seen: set[str] = set()
+def _domains_from_text(text: str) -> list[str]:
     out: list[str] = []
-    for x in items:
-        if x and x not in seen:
-            seen.add(x)
-            out.append(x)
+    decoded = text
+    try:
+        decoded = unquote(unquote(text))
+    except Exception:
+        pass
+    for m in re.finditer(r"https?://[^\s\"<>']+", decoded):
+        d = _domain_root(m.group(0))
+        if d:
+            out.append(d)
+    for m in re.finditer(r"\b([a-z][a-z0-9-]*(?:\.[a-z0-9-]+)*\.by)\b", decoded, re.I):
+        cand = m.group(1).lower()
+        d = _domain_root("https://" + cand)
+        if d:
+            out.append(d)
+    return _dedup(out)
+
+
+async def _human_pause(short: bool = False):
+    base = random.uniform(0.4, 1.2) if short else random.uniform(2.0, 5.0)
+    await asyncio.sleep(base)
+
+
+async def _human_scroll(page: Page) -> None:
+    try:
+        for _ in range(random.randint(2, 4)):
+            await page.mouse.wheel(0, random.randint(300, 700))
+            await asyncio.sleep(random.uniform(0.3, 0.9))
+    except Exception:
+        pass
+
+
+async def _apply_stealth(page: Page) -> None:
+    if _STEALTH is None:
+        return
+    try:
+        await _STEALTH.apply_stealth_async(page)
+    except Exception as e:
+        log.debug("stealth apply failed: %s", e)
+
+
+async def _new_search_page(ctx: BrowserContext) -> Page:
+    page = await ctx.new_page()
+    page.set_default_timeout(PAGE_GOTO_TIMEOUT_MS)
+    await _apply_stealth(page)
+    return page
+
+
+async def _hrefs_from_page(page: Page) -> list[str]:
+    try:
+        return await page.eval_on_selector_all(
+            "a[href]", "els => els.map(e => e.href)"
+        )
+    except Exception:
+        return []
+
+
+def _domains_from_hrefs(hrefs: Iterable[str]) -> list[str]:
+    out: list[str] = []
+    for h in hrefs:
+        real = _extract_real_url(h)
+        if not real:
+            continue
+        d = _domain_root(real)
+        if d:
+            out.append(d)
     return out
 
 
-async def _ddg_html(
-    query: str,
-    client: httpx.AsyncClient,
-    *,
-    max_retries: int = 3,
-) -> list[str]:
-    backoff = 2.0
-    for attempt in range(max_retries):
+# ──────────────────────────────────────────────────────────────────────
+# curl_cffi paths (TLS impersonation)
+
+
+_CFFI_IMPERSONATES = ["chrome120", "chrome116", "chrome110", "edge99"]
+
+
+async def _cffi_get(url: str, *, referer: str | None = None) -> str | None:
+    if not _CFFI_OK:
+        return None
+
+    def _do() -> str | None:
+        impersonate = random.choice(_CFFI_IMPERSONATES)
         try:
-            resp = await client.post(
-                DDG_HTML_URL,
-                data={"q": query, "kl": "by-ru", "kp": "-2"},
-                headers={**HEADERS, "User-Agent": random.choice(USER_AGENTS)},
-                timeout=20.0,
+            r = cffi_requests.get(
+                url,
+                headers={
+                    "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+                    **({"Referer": referer} if referer else {}),
+                },
+                impersonate=impersonate,
+                timeout=20,
             )
-        except (httpx.RequestError, httpx.TimeoutException) as e:
-            log.warning("ddg request failed (attempt %d): %s", attempt + 1, e)
-            await asyncio.sleep(backoff)
-            backoff *= 1.7
-            continue
+            if r.status_code != 200:
+                log.info("cffi %s: HTTP %s", url[:60], r.status_code)
+                return None
+            return r.text
+        except Exception as e:
+            log.info("cffi %s: %s", url[:60], e)
+            return None
 
-        if resp.status_code == 202 or "anomaly" in (resp.text[:200].lower()):
-            log.info("ddg challenge for %r — backoff %.1fs", query, backoff)
-            await asyncio.sleep(backoff)
-            backoff *= 1.7
-            continue
-
-        if resp.status_code != 200:
-            log.warning("ddg http %s for %r", resp.status_code, query)
-            await asyncio.sleep(backoff)
-            backoff *= 1.5
-            continue
-
-        return _parse_ddg(resp.text)
-
-    return []
+    return await asyncio.to_thread(_do)
 
 
-def _parse_ddg(html: str) -> list[str]:
-    soup = BeautifulSoup(html, "html.parser")
-    domains: list[str] = []
-    for a in soup.select("a.result__a, a.result__url, a.result-link"):
-        href = a.get("href") or ""
-        real = _extract_real_url(href)
-        if real:
-            d = _domain_root(real)
-            if d:
-                domains.append(d)
-    if not domains:
-        for a in soup.find_all("a"):
-            href = a.get("href") or ""
-            if "uddg=" not in href and not href.startswith("http"):
+async def _cffi_post(url: str, *, data: dict) -> str | None:
+    if not _CFFI_OK:
+        return None
+
+    def _do() -> str | None:
+        impersonate = random.choice(_CFFI_IMPERSONATES)
+        try:
+            r = cffi_requests.post(
+                url,
+                data=data,
+                headers={
+                    "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
+                    "Origin": "https://html.duckduckgo.com",
+                    "Referer": "https://html.duckduckgo.com/",
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                impersonate=impersonate,
+                timeout=20,
+            )
+            if r.status_code != 200:
+                log.info("cffi POST %s: HTTP %s", url[:60], r.status_code)
+                return None
+            return r.text
+        except Exception as e:
+            log.info("cffi POST %s: %s", url[:60], e)
+            return None
+
+    return await asyncio.to_thread(_do)
+
+
+# ──────────────────────────────────────────────────────────────────────
+# Bing
+
+
+async def _bing_via_cffi(query: str, *, pages: int = 3) -> list[str]:
+    out: list[str] = []
+    for p in range(pages):
+        first = p * 10 + 1
+        url = (
+            f"https://www.bing.com/search?q={quote_plus(query)}"
+            f"&setlang=ru&count=20&first={first}"
+        )
+        html = await _cffi_get(url, referer="https://www.bing.com/")
+        if not html:
+            break
+        if "captcha" in html.lower() and "verify" in html.lower():
+            log.info("bing cffi captcha for %r", query)
+            break
+        page_doms = _domains_from_text(html)
+        if not page_doms:
+            break
+        out.extend(page_doms)
+        await asyncio.sleep(random.uniform(1.5, 3.0))
+    return _dedup(out)
+
+
+async def _bing_via_playwright(
+    query: str, ctx: BrowserContext, *, pages: int = 3
+) -> list[str]:
+    page = await _new_search_page(ctx)
+    out: list[str] = []
+    try:
+        try:
+            await page.goto(
+                "https://www.bing.com/",
+                wait_until="domcontentloaded",
+                timeout=PAGE_GOTO_TIMEOUT_MS,
+            )
+            await _human_pause(short=True)
+            try:
+                accept = page.locator(
+                    'button:has-text("Accept"), '
+                    'button:has-text("Принять"), '
+                    'button#bnp_btn_accept'
+                )
+                if await accept.count() > 0 and await accept.first.is_visible():
+                    await accept.first.click(timeout=2000)
+                    await _human_pause(short=True)
+            except Exception:
+                pass
+        except Exception as e:
+            log.info("bing home goto failed: %s", e)
+
+        for p in range(pages):
+            first = p * 10 + 1
+            url = (
+                f"https://www.bing.com/search?q={quote_plus(query)}"
+                f"&setlang=ru&count=20&first={first}"
+            )
+            try:
+                await page.goto(
+                    url, wait_until="domcontentloaded", timeout=PAGE_GOTO_TIMEOUT_MS
+                )
+            except Exception as e:
+                log.info("bing pw goto: %s", e)
+                break
+            try:
+                await page.wait_for_selector(
+                    "li.b_algo, .b_no, #b_results", timeout=10_000
+                )
+            except PWTimeoutError:
+                pass
+            await _human_scroll(page)
+            html = await page.content()
+            if "captcha" in html.lower() and ("verify" in html.lower()
+                                              or "robot" in html.lower()):
+                log.info("bing pw captcha for %r", query)
+                break
+            doms = _domains_from_text(html)
+            if not doms:
+                break
+            out.extend(doms)
+            if p < pages - 1:
+                await _human_pause()
+    finally:
+        try:
+            await page.close()
+        except Exception:
+            pass
+    return _dedup(out)
+
+
+async def _bing_search(query: str, ctx: BrowserContext) -> list[str]:
+    res = await _bing_via_cffi(query)
+    if len(res) >= 5:
+        return res
+    pw = await _bing_via_playwright(query, ctx)
+    return _dedup(res + pw)
+
+
+# ──────────────────────────────────────────────────────────────────────
+# DuckDuckGo
+
+
+async def _ddg_via_cffi(query: str) -> list[str]:
+    html = await _cffi_post(
+        "https://html.duckduckgo.com/html/",
+        data={"q": query, "kl": "by-ru", "kp": "-2"},
+    )
+    if not html:
+        return []
+    if "anomaly" in html[:500].lower():
+        log.info("ddg cffi anomaly for %r", query)
+        return []
+    return _domains_from_text(html)
+
+
+async def _ddg_via_playwright(query: str, ctx: BrowserContext) -> list[str]:
+    page = await _new_search_page(ctx)
+    out: list[str] = []
+    try:
+        for url in (
+            f"https://html.duckduckgo.com/html/?q={quote_plus(query)}&kl=by-ru",
+            f"https://duckduckgo.com/?q={quote_plus(query)}&kl=by-ru&t=h_",
+        ):
+            try:
+                await page.goto(
+                    url, wait_until="domcontentloaded", timeout=15_000
+                )
+            except Exception as e:
+                log.info("ddg pw goto: %s", e)
                 continue
-            real = _extract_real_url(href)
-            if real:
-                d = _domain_root(real)
-                if d:
-                    domains.append(d)
-    return _dedup(domains)
-
-
-async def _bing_html(
-    query: str,
-    client: httpx.AsyncClient,
-    *,
-    max_retries: int = 2,
-) -> list[str]:
-    backoff = 1.5
-    for attempt in range(max_retries):
+            try:
+                await page.wait_for_selector(
+                    'a.result__a, [data-testid="result-title-a"], '
+                    'a.result-link',
+                    timeout=8_000,
+                )
+            except PWTimeoutError:
+                continue
+            await _human_scroll(page)
+            html = await page.content()
+            doms = _domains_from_text(html)
+            if doms:
+                out.extend(doms)
+                break
+    finally:
         try:
-            resp = await client.get(
-                BING_URL,
-                params={"q": query, "setlang": "ru", "cc": "by", "count": "50"},
-                headers={**HEADERS, "User-Agent": random.choice(USER_AGENTS)},
-                timeout=20.0,
-            )
-        except (httpx.RequestError, httpx.TimeoutException) as e:
-            log.warning("bing request failed (attempt %d): %s", attempt + 1, e)
-            await asyncio.sleep(backoff)
-            backoff *= 1.5
-            continue
-        if resp.status_code != 200:
-            log.warning("bing http %s for %r", resp.status_code, query)
-            await asyncio.sleep(backoff)
-            backoff *= 1.5
-            continue
-        return _parse_bing(resp.text)
-    return []
+            await page.close()
+        except Exception:
+            pass
+    return _dedup(out)
 
 
-def _parse_bing(html: str) -> list[str]:
-    soup = BeautifulSoup(html, "html.parser")
-    domains: list[str] = []
-    for sel in ("li.b_algo h2 a", "li.b_algo cite", "h2 a"):
-        for a in soup.select(sel):
-            href = a.get("href") or a.get_text(strip=True) or ""
-            if not href.startswith(("http://", "https://")):
-                href = "https://" + href
-            d = _domain_root(href)
-            if d:
-                domains.append(d)
-    return _dedup(domains)
+async def _ddg_search(query: str, ctx: BrowserContext) -> list[str]:
+    res = await _ddg_via_cffi(query)
+    if len(res) >= 5:
+        return res
+    pw = await _ddg_via_playwright(query, ctx)
+    return _dedup(res + pw)
+
+
+# ──────────────────────────────────────────────────────────────────────
+# Yandex (опционально, часто капча)
+
+
+async def _yandex_via_cffi(query: str) -> list[str]:
+    url = f"https://yandex.by/search/?text={quote_plus(query)}&lr=157"
+    html = await _cffi_get(url, referer="https://yandex.by/")
+    if not html or "captcha" in html.lower() or "не робот" in html.lower():
+        return []
+    return _domains_from_text(html)
+
+
+# ──────────────────────────────────────────────────────────────────────
 
 
 async def search_query(
     query: str,
-    client: httpx.AsyncClient,
+    ctx: BrowserContext,
+    *,
+    min_target: int = 25,
 ) -> tuple[list[str], str]:
-    """Search a single query. Returns (domains, source).
+    """Run query through Bing / DDG / Yandex with stealth + TLS impersonation."""
+    sources: list[str] = []
+    all_domains: list[str] = []
 
-    source ∈ {"ddg", "bing", "empty"}.
-    """
-    domains = await _ddg_html(query, client)
-    if domains:
-        return domains, "ddg"
-    log.info("ddg empty for %r — trying bing", query)
-    domains = await _bing_html(query, client)
-    if domains:
-        return domains, "bing"
-    return [], "empty"
+    bing = await _bing_search(query, ctx)
+    if bing:
+        sources.append(f"bing:{len(bing)}")
+        all_domains.extend(bing)
+
+    if len(_dedup(all_domains)) < min_target:
+        ddg = await _ddg_search(query, ctx)
+        if ddg:
+            sources.append(f"ddg:{len(ddg)}")
+            all_domains.extend(ddg)
+
+    if len(_dedup(all_domains)) < min_target:
+        ya = await _yandex_via_cffi(query)
+        if ya:
+            sources.append(f"ya:{len(ya)}")
+            all_domains.extend(ya)
+
+    final = _dedup(all_domains)
+    if not final:
+        return [], "empty"
+    return final, ",".join(sources)

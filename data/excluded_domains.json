@@ -146,5 +146,2185 @@
   "giftguru.by": {
     "reason": "no callback form",
     "ts": "2026-05-04T14:38:50"
+  },
+  "nepc.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)",
+    "ts": "2026-05-04T19:50:09"
+  },
+  "dpd.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:11"
+  },
+  "standartpark.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:11"
+  },
+  "help.vats.mts.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:49"
+  },
+  "dix.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:50"
+  },
+  "filist.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:50"
+  },
+  "lnsblog.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-04T19:50:50"
+  },
+  "pridvinje.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:50"
+  },
+  "widget.it-center.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:50"
+  },
+  "pharmec.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:50:50"
+  },
+  "itmarket.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:21"
+  },
+  "multicom.by": {
+    "reason": "TooManyRedirects: Exceeded maximum allowed redirects.",
+    "ts": "2026-05-04T19:51:21"
+  },
+  "360shop.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:21"
+  },
+  "7745.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:21"
+  },
+  "vishop.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:21"
+  },
+  "foxstore.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:21"
+  },
+  "nebo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:54"
+  },
+  "mebelcity.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:57"
+  },
+  "mebel-zakaz.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:54"
+  },
+  "mebel-master.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:54"
+  },
+  "alliance-mebel.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:54"
+  },
+  "formatmebel.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:54"
+  },
+  "kuxny.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:57"
+  },
+  "mannaz.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:57"
+  },
+  "atf.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:57"
+  },
+  "fabrikmodul-kitchen.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-04T19:51:57"
+  },
+  "inhouse.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:51:57"
+  },
+  "minsk.eoplus.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:52:32"
+  },
+  "potolki.nebo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:52:39"
+  },
+  "potolky.by": {
+    "reason": "timeout",
+    "ts": "2026-05-04T19:53:06"
+  },
+  "ferico.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:06"
+  },
+  "pk-potolok.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:06"
+  },
+  "potolky.garmonia.by": {
+    "reason": "page timeout",
+    "ts": "2026-05-04T19:53:06"
+  },
+  "vse-potolki.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:06"
+  },
+  "spotolok.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:06"
+  },
+  "sto-senitsa.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:21"
+  },
+  "vostok-zapad.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:21"
+  },
+  "avtoservis125.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:21"
+  },
+  "senaiva.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:21"
+  },
+  "redcarsto.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-04T19:53:21"
+  },
+  "potolki5.by": {
+    "reason": "timeout",
+    "ts": "2026-05-04T20:46:27"
+  },
+  "sekator.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "bogemia.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "vtb.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "invitro.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "amocrm.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "pagemaker.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "aksenov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "allsecond.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "solpi.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T19:16:21"
+  },
+  "2fbeltelecom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fhelp.vats.mts.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fzvonko.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2ftboservice.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fwww.dpd.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fcallbacky.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fzap.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fsmscentre.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2famocrm.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fnces.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "nces.by": {
+    "reason": "page timeout",
+    "ts": "2026-05-05T21:32:13"
+  },
+  "2fwww.mts.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2flife.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2f1net.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2fpo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2f7200.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2ftaxibiz.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "taxibiz.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2fdomotehnika.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "domotehnika.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2foptimed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "optimed.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2dlida.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2faskona.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:32:43"
+  },
+  "2fatevi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2fhpc.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2fdix.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2fpridvinje.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2fpharmec.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2fwww.pagemaker.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2flnsblog.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2dcenter.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:00"
+  },
+  "2fzvonok.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "zvonok.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2fmabilachka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2f360shop.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2fkupalinka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "kupalinka.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2ftochno.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "tochno.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2fvishop.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2fitmarket.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2dm.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "it-m.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2falenagoretskayashop.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2fbelorismoda.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:33:38"
+  },
+  "2fformatmebel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2fanmix.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2dmebel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2fnebo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2ffurniflex.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2fmebelzakaz.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "mebelzakaz.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2dnazakaz.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2fmobymebel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2farsolmebel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "arsolmebel.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2fmebelcity.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:34:24"
+  },
+  "2fpostroimdom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "postroimdom.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2fvozvedem.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2fzdom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "zdom.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2fenkins.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "enkins.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2fbelikov.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "belikov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2fstroyminsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "stroyminsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2dpostroim.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "dom-postroim.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2fmasterstroy.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "masterstroy.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2ddom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2dhouse.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:37:45"
+  },
+  "2drem.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "a-rem.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fvsemaster.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2d7.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fartstroy.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fdomstroykonsalt.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "domstroykonsalt.by": {
+    "reason": "connect: [SSL: TLSV1_UNRECOGNIZED_NAME] tlsv1 unrecognized name (_ssl.c:1010)",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fallrem.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2dservice.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fwww.yuts.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2felitremont.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "elitremont.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fnavseruki.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:38:30"
+  },
+  "2fsantechnik.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "4050.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "santechnik.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2fsantehroom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "santehroom.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2dshop.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "santehnica-shop.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2fsanstar.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "sanstar.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2dsantehnik.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2dnet.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "santehnika-net.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2fsantehshop.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "santehshop.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2dminsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2fsantehnik.minsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2fwww.bydom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:39:17"
+  },
+  "2fmulticom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2fatlant.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "atlant.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2fcbts.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "cbts.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2fakpo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "akpo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2ftehniks.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "tehniks.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2fwww.vtema.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "vtema.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2fwww.ardo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "ardo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2fshop.beltelecom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "shop.beltelecom.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2donline.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "market-online.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2dtech.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "bu-tech.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:07"
+  },
+  "2farmitek.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "armitek.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2fwww.chaikamarket.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "chaikamarket.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2fminsk.pulscen.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "minsk.pulscen.by": {
+    "reason": "HTTP 503",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2f7745.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2fminsk.deal.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "deal.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "minsk.deal.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2fwww.oma.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2fvdo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "vdo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:40:48"
+  },
+  "2fstoryflowers.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2fteleflora.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "teleflora.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2fmillionroz.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "millionroz.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2flepestok.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "lepestok.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2fzakazcvetov.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "zakazcvetov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2fflowwow.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "flowwow.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2fcvetimira.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "cvetimira.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2ftopcvetok.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "topcvetok.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2ffirstfloral.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "firstfloral.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2fflorita.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "florita.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:41:35"
+  },
+  "2dtur.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "by-tur.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fanitatour.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "anitatour.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fmoretravel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "moretravel.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fintercity.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "intercity.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fatur.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fdatatour.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fwww.chilli.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fbogemia.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2fwww.relax.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "2dtours.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:42:16"
+  },
+  "perevozki7473.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:43:07"
+  },
+  "by-ru.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:43:07"
+  },
+  "2fybo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "ybo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2fwww.alfaclean.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2fgreencleaning.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2flepei.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2fcleanall.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2fclean24.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2dtok.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2dcleaning.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "personal-cleaning.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2fcleanbase.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2fspravka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "spravka.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:44:05"
+  },
+  "2frecool.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fvizitok.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fairprint.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "airprint.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fprintminsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "printminsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2dprinter.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "s-printer.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fwww.karandash.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "karandash.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fpechatnik.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "pechatnik.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fmasterprint.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fwww.allpol.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fbykvica.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "bykvica.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:44:56"
+  },
+  "2fbeleksprint.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2fsalamandra.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2fwww.plutos.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2fantiqua.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2fwww.24print.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2dri.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2fpablik.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "pablik.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2fintegralpoligraf.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "integralpoligraf.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:45:31"
+  },
+  "2frentme.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "rentme.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2davto24.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "prokat-avto24.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fkomandir.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2drent.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "skv-rent.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fautorent.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "autorent.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fhello.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "hello.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2dcar.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "is-car.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fwestgroup.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fwww.arendavto.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fl2d.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:12"
+  },
+  "2fwww.b2b.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "b2b.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2ftaxi.yandex.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "taxi.yandex.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2ftaxibel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2fb2b.135.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2f24minsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "24minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2favtoportal.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "avtoportal.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2fvsetaksi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "vsetaksi.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2fkoris.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-05T21:46:56"
+  },
+  "2fsekator.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:30:37"
+  },
+  "2faksenov.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:30:37"
+  },
+  "2fsolpi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:30:37"
+  },
+  "2fkaskadclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "kaskadclinic.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fwww.103.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "103.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fmedavenu.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fydoc.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "ydoc.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fwww.lode.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "lode.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fdoctortut.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "doctortut.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fmercimed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fsante.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fkravira.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "kravira.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fnordin.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "nordin.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:56:50"
+  },
+  "2fevaclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2fpraxis.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2f2doc.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2doc.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2fsmartmedical.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2fzoon.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "zoon.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2fneomedical.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "neomedical.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2fmedart.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "medart.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:57:34"
+  },
+  "2fanatomiya.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:58:13"
+  },
+  "anatomiya.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:58:13"
+  },
+  "2faquaminskclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:58:13"
+  },
+  "aquaminskclinic.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:58:13"
+  },
+  "2fanikamed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:58:33"
+  },
+  "2fproudclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:58:33"
+  },
+  "2dmed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:58:33"
+  },
+  "2fgrandmedica.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:58:33"
+  },
+  "2ftalon.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "talon.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2fnovolekar.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "novolekar.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2fstomtravel.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2feverestdent.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2fmysmile.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2fwww.3gsp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "3gsp.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2fdentix.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "dentix.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T07:59:19"
+  },
+  "2dhelp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "2fpsycenter.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "psycenter.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "2fdushaved.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "2fcentrsna.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "centrsna.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "2fannaivanova.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "2fmetaclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:01"
+  },
+  "2fresursmedicalgroup.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:28"
+  },
+  "resursmedicalgroup.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:00:28"
+  },
+  "2fmaramed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:00:49"
+  },
+  "2fklinik.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "2femiclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "emiclinic.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "2flifecity.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "lifecity.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "2fmedera.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "medera.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:01:31"
+  },
+  "2fmedklinik.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:58"
+  },
+  "2fconfidence.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:58"
+  },
+  "2fdoctorprofi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:01:58"
+  },
+  "2fgurumed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:02:30"
+  },
+  "gurumed.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:02:30"
+  },
+  "2fresursmed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:15:47"
+  },
+  "2fdentologia.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "dentologia.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "2fkdoktoru.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "2fkano.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "kano.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "2fstomarus.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "2fdoctorsmile.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:16:32"
+  },
+  "2fdialogo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "dialogo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "2fhealthymind.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "2fvitever.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "2dtsarenia.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "psyholog-tsarenia.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "2fintention.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "intention.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:17:04"
+  },
+  "2dclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:17:23"
+  },
+  "e-clinic.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:17:23"
+  },
+  "2flabriz.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:09"
+  },
+  "2frclinic.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:09"
+  },
+  "rclinic.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:18:09"
+  },
+  "2fsapphiremed.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:09"
+  },
+  "sapphiremed.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:18:09"
+  },
+  "2fskinexpert.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:09"
+  },
+  "2fgravita.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:54"
+  },
+  "gravita.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:18:54"
+  },
+  "2fzroba.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:54"
+  },
+  "2fwww.endominsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:18:54"
+  },
+  "endominsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:18:54"
+  },
+  "2fritual.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "ritual.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2duslugy.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2dritual.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2fritualhelp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2duslugi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "ritualnye-uslugi.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2fritualnyeuslugi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "ritualnyeuslugi.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2frityal24.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "rityal24.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2fpohoronim.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2fritdusha.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:19:36"
+  },
+  "2fritualcompany.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2fobryad.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "obryad.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2fritualburo.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2dzhizn.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "pohoronnoe-byuro-novaya-zhizn.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2dbyro.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2fpohoron.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2dbiuro.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:20:12"
+  },
+  "2dvera.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "2fritualrb.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "2fritualy.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "2fpamiat.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "2fbezmolvie.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "bezmolvie.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "2fsiriys.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:08"
+  },
+  "2felz.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:50"
+  },
+  "2fwww.aritual.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:50"
+  },
+  "aritual.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:21:50"
+  },
+  "2f173.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:50"
+  },
+  "173.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:21:50"
+  },
+  "2f8angelov.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:21:50"
+  },
+  "2fzooport.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:22:30"
+  },
+  "2fwww.zapomnim.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:22:30"
+  },
+  "ritual-byro.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:22:30"
+  },
+  "2fpokoy.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:22:30"
+  },
+  "2fkremaciya.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:22:30"
+  },
+  "2fpoxorony.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "poxorony.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "2fmingorritual.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "mingorritual.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "2fceremonial.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "ceremonial.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "2ftriant.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:09"
+  },
+  "2f1gkb.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "1gkb.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fwww.gkib.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "gkib.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fmgkoc.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "mgkoc.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fbsmp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "bsmp.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fgosstandart.gov.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "gosstandart.gov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fwww.oblstom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "oblstom.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2f40gkp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "40gkp.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fvokcmri.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "vokcmri.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fanhelava.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fwww.20gp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "20gp.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:23:38"
+  },
+  "2fmokc.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "2fmgkpd.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "mgkpd.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "2fmrt.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "mrt.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "2f10gp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "10gp.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:24:22"
+  },
+  "2ftop.minsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "top.minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2ffirmi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "firmi.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fprolawyer.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "prolawyer.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fpravocom.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fwww.advocateminsk.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "advocateminsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fartlaw.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "artlaw.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fdc.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "dc.by": {
+    "reason": "timeout",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2durist.by": {
+    "reason": "timeout",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "1-urist.by": {
+    "reason": "timeout",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fjurisprudent.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fprav.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "prav.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:25:26"
+  },
+  "2fbdv.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "bdv.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fuchetcentr.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "uchetcentr.by": {
+    "reason": "form-finder timeout",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2farlepta.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fardenna.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "ardenna.by": {
+    "reason": "connect: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1081)",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fwww.buhuslugi.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fsoftbuhpluse.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fbuhexpert.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fprofiked.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fofficetime.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "officetime.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fmmbuh.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:06"
+  },
+  "2fskupaem.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2dtehniki.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2frpro.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "rpro.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "skupka-minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2fproskupka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2fcrediton.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2fskypka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2dprice.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2ftechnostock.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2dskupka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:26:40"
+  },
+  "2fskypaem.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "2dnoutbukov.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "skupka-noutbukov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "2dnotebook.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "skupka-notebook.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "2fitkomp.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "2f100nout.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "vikup-minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:27:13"
+  },
+  "2f1skupka.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "2ftehrem.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "skupka-telefonov-minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "2dbelarus.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "skupka-belarus.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "2fskupkabelarus.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "skupkabelarus.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "2fskupkatehniky.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "skupkatehniky.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "2fskupka24.by": {
+    "reason": "connect: [Errno 11001] getaddrinfo failed",
+    "ts": "2026-05-06T08:27:49"
+  },
+  "topuslugi.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:08:34"
+  },
+  "psy-help.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:08:34"
+  },
+  "doktora.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:09:08"
+  },
+  "happyderm.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:09:40"
+  },
+  "aerobika.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:10:16"
+  },
+  "doctors-24.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:10:16"
+  },
+  "belrityal.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:10:43"
+  },
+  "pohorony-minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:11:30"
+  },
+  "postmortem.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:11:30"
+  },
+  "vituzo.gov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:13:10"
+  },
+  "du-lesnoj1.minsk.edu.by": {
+    "reason": "connect: ",
+    "ts": "2026-05-07T21:13:10"
+  },
+  "hypnotherapy.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:13:45"
+  },
+  "yur-24.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:14:19"
+  },
+  "brka.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:14:19"
+  },
+  "buhuchet.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:14:55"
+  },
+  "vikuptehniky.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:15:20"
+  },
+  "virtyx.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:15:50"
+  },
+  "skupka-noutov.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:15:50"
+  },
+  "belservice.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:16:23"
   }
 }

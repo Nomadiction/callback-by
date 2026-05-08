@@ -8,6 +8,7 @@ import random
 import threading
 from collections import Counter
 from datetime import datetime
+from pathlib import Path
 
 import pandas as pd
 import streamlit as st
@@ -20,7 +21,7 @@ from src.exclusions import (
 )
 from src.maintenance import grow, verify_all
 from src.phone import PhoneError, normalize
-from src.result import SiteResult, Status, write_csv
+from src.result import SiteResult, Status, VerifyReportRow, write_csv, write_verify_csv
 from src.runner import run as run_pipeline
 
 try:
@@ -930,15 +931,46 @@ def render_maintenance_tab(settings: RunSettings):
     st.markdown("#### 🔄 Верификация существующего списка")
     st.markdown(
         '<div class="cb-help">Проверка: HTTP-доступность + наличие callback-формы. '
-        'Без формы и мёртвые домены автоматически уезжают в исключения '
-        'и больше не перепроверяются при росте.</div>',
+        'В строгом режиме дополнительно проверяются ввод номера и попытка отправки. '
+        'Сайты без рабочей формы автоматически уезжают в исключения.</div>',
         unsafe_allow_html=True,
     )
+    strict_verify = st.checkbox(
+        "Строгая проверка: тестировать ввод номера и submit",
+        value=False,
+        help="Использует тестовый номер и пытается реально заполнить форму и нажать отправку.",
+    )
+    verify_phone = ""
+    verify_message = ""
+    if strict_verify:
+        st.caption("Строгая проверка полезна для чистки базы, но она делает реальную попытку отправки формы на каждом сайте.")
+        v1, v2 = st.columns([1, 2])
+        with v1:
+            verify_phone = st.text_input(
+                "Тестовый номер для верификации",
+                key="verify_phone",
+                placeholder="+375 29 123 45 67",
+            )
+        with v2:
+            verify_message = st.text_input(
+                "Тестовое сообщение",
+                key="verify_message",
+                value="Проверка формы",
+            )
     if st.button("🔍 Запустить верификацию", type="primary", use_container_width=True):
         sites = load_sites()
         if not sites:
             st.warning("Список пуст.")
+        elif strict_verify and not verify_phone:
+            st.warning("Укажи тестовый номер для строгой верификации.")
         else:
+            normalized_verify_phone = ""
+            if strict_verify:
+                try:
+                    normalized_verify_phone = normalize(verify_phone)
+                except PhoneError as e:
+                    st.warning(f"Некорректный тестовый номер: {e}")
+                    return
             total = len(sites)
             with st.status(f"Верификация {total} сайтов…", expanded=True) as status:
                 progress = st.progress(0.0, text="…")
@@ -953,10 +985,16 @@ def render_maintenance_tab(settings: RunSettings):
                         cls, mark = "neutral", "⚠"
                     else:
                         cls, mark = "bad", "✗"
+                    extra = ""
+                    if strict_verify and res.form_found:
+                        extra = (
+                            f' · phone: {"ok" if res.phone_sent else "fail"}'
+                            f' · submit: {"ok" if res.submit_ok else "fail"}'
+                        )
                     line = (
                         f'<span class="{cls}">{mark}</span> '
                         f'<code>{entry["url"]}</code> '
-                        f'<span class="neutral">— {res.reason or "OK"}</span>'
+                        f'<span class="neutral">— {res.reason or "OK"}{extra}</span>'
                     )
                     lines.append(line)
                     progress.progress(
@@ -971,11 +1009,23 @@ def render_maintenance_tab(settings: RunSettings):
                 async def _factory(emit):
                     def _wrapped(i, tot, entry, res):
                         emit("step", (i, tot, entry, res))
+                    verify_settings = None
+                    if strict_verify:
+                        verify_settings = RunSettings(
+                            phone=normalized_verify_phone,
+                            message=verify_message,
+                            headless=headless,
+                            pause_min=0,
+                            pause_max=0,
+                            max_sites=1,
+                        )
                     return await verify_all(
                         headless=headless,
                         concurrency=concurrency,
                         on_progress=_wrapped,
                         save=True,
+                        test_submission=strict_verify,
+                        submission_settings=verify_settings,
                     )
 
                 try:
@@ -987,15 +1037,126 @@ def render_maintenance_tab(settings: RunSettings):
                 good = sum(1 for _, r in pairs if r.good)
                 alive_no_form = sum(1 for _, r in pairs if r.alive and not r.form_found)
                 dead = sum(1 for _, r in pairs if not r.alive)
+                phone_failed = sum(
+                    1
+                    for _, r in pairs
+                    if strict_verify and r.alive and r.form_found and r.submission_checked and not r.phone_sent
+                )
+                submit_failed = sum(
+                    1
+                    for _, r in pairs
+                    if strict_verify and r.alive and r.form_found and r.submission_checked and r.phone_sent and not r.submit_ok
+                )
                 status.update(
                     label=(
                         f"Готово: ✓{good}  ⚠{alive_no_form} без формы  "
                         f"✗{dead} мёртвых"
+                        + (f"  ⛔{phone_failed} не приняли номер" if strict_verify and phone_failed else "")
+                        + (f"  ⛔{submit_failed} не прошли submit" if strict_verify and submit_failed else "")
                     ),
                     state="complete",
                 )
+                report_rows = [
+                    VerifyReportRow(
+                        url=entry["url"],
+                        alive=res.alive,
+                        form_found=res.form_found,
+                        submission_checked=res.submission_checked,
+                        phone_sent=res.phone_sent,
+                        submit_ok=res.submit_ok,
+                        good=res.good,
+                        reason=res.reason,
+                    )
+                    for entry, res in pairs
+                ]
+                report_path = LOGS_DIR / (
+                    f"verify_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+                )
+                write_verify_csv(report_rows, report_path)
+                st.session_state["last_verify_report_path"] = str(report_path)
+                st.session_state["last_verify_summary"] = {
+                    "total": total,
+                    "good": good,
+                    "alive_no_form": alive_no_form,
+                    "dead": dead,
+                    "phone_failed": phone_failed,
+                    "submit_failed": submit_failed,
+                    "strict": strict_verify,
+                }
+                st.session_state["last_verify_rows"] = [r.as_row() for r in report_rows]
             st.toast("Список обновлён", icon="🔄")
             st.rerun()
+
+    verify_summary = st.session_state.get("last_verify_summary")
+    verify_report_path = st.session_state.get("last_verify_report_path")
+    verify_rows = st.session_state.get("last_verify_rows")
+    if verify_summary and verify_report_path:
+        st.markdown("##### Отчёт последней верификации")
+        strict_label = "Строгий режим" if verify_summary.get("strict") else "Базовый режим"
+        st.markdown(
+            (
+                '<div class="cb-panel">'
+                f'<div class="cb-help">{strict_label}. Последний отчёт сохранён в <code>{Path(verify_report_path).name}</code>.</div>'
+                '<div class="cb-kpis">'
+                f'<div class="cb-kpi"><div class="label">Всего</div><div class="value">{verify_summary["total"]}</div></div>'
+                f'<div class="cb-kpi"><div class="label">Годных</div><div class="value">{verify_summary["good"]}</div></div>'
+                f'<div class="cb-kpi"><div class="label">Без формы</div><div class="value">{verify_summary["alive_no_form"]}</div></div>'
+                f'<div class="cb-kpi"><div class="label">Недоступны</div><div class="value">{verify_summary["dead"]}</div></div>'
+                '</div>'
+                '</div>'
+            ),
+            unsafe_allow_html=True,
+        )
+        if verify_summary.get("strict"):
+            st.caption(
+                f"Не приняли номер: {verify_summary['phone_failed']} · Не прошли submit: {verify_summary['submit_failed']}"
+            )
+        report_file = Path(verify_report_path)
+        if report_file.exists():
+            st.download_button(
+                "Скачать verify CSV",
+                data=report_file.read_bytes(),
+                file_name=report_file.name,
+                mime="text/csv",
+                use_container_width=True,
+            )
+        if verify_rows:
+            preview_df = pd.DataFrame(verify_rows)
+            preview_df = preview_df.sort_values(
+                by=["good", "alive", "form_found", "submit_ok", "phone_sent", "url"],
+                ascending=[True, True, True, True, True, True],
+            )
+            failure_filter = st.selectbox(
+                "Показать в отчёте",
+                ["Все", "Только проблемные", "Только годные"],
+                key="verify_report_filter",
+            )
+            if failure_filter == "Только проблемные":
+                preview_df = preview_df[~preview_df["good"]]
+            elif failure_filter == "Только годные":
+                preview_df = preview_df[preview_df["good"]]
+            preview_df = preview_df.rename(
+                columns={
+                    "url": "Сайт",
+                    "alive": "Доступен",
+                    "form_found": "Форма найдена",
+                    "submission_checked": "Проверка submit",
+                    "phone_sent": "Номер принят",
+                    "submit_ok": "Submit ok",
+                    "good": "Годен",
+                    "reason": "Причина",
+                    "timestamp": "Время",
+                }
+            )
+            if preview_df.empty:
+                st.info("По текущему фильтру строк нет.")
+            else:
+                st.dataframe(
+                    preview_df,
+                    use_container_width=True,
+                    hide_index=True,
+                    height=min(420, 80 + len(preview_df) * 35),
+                )
 
     st.divider()
 

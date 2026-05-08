@@ -187,6 +187,26 @@
     "reason": "no callback form",
     "ts": "2026-05-04T19:50:50"
   },
+  "doctorprofi.by": {
+    "reason": "manually excluded",
+    "ts": "2026-05-07T14:37:12"
+  },
+  "minsk-lida.by": {
+    "reason": "manually excluded",
+    "ts": "2026-05-07T16:04:28"
+  },
+  "pinskdrev.by": {
+    "reason": "manually excluded",
+    "ts": "2026-05-07T10:18:43"
+  },
+  "profiked.by": {
+    "reason": "manually excluded",
+    "ts": "2026-05-07T09:52:11"
+  },
+  "imperiacoffee.by": {
+    "reason": "manually excluded",
+    "ts": "2026-05-07T11:26:49"
+  },
   "itmarket.by": {
     "reason": "no callback form",
     "ts": "2026-05-04T19:51:21"
@@ -2326,5 +2346,53 @@
   "belservice.by": {
     "reason": "no callback form",
     "ts": "2026-05-07T21:16:23"
+  },
+  "gippo.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:17:23"
+  },
+  "ritual-minsk.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:17:33"
+  },
+  "zroba.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:17:43"
+  },
+  "zapomnim.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:17:53"
+  },
+  "alfa-mebel.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T21:17:56"
+  },
+  "e-pos.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-07T22:26:26"
+  },
+  "mikon.by": {
+    "reason": "captcha detected",
+    "ts": "2026-05-07T22:26:26"
+  },
+  "remont-7.by": {
+    "reason": "timeout",
+    "ts": "2026-05-07T22:26:26"
+  },
+  "gruzoboy.by": {
+    "reason": "timeout",
+    "ts": "2026-05-07T22:26:26"
+  },
+  "evaclinic.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T22:26:26"
+  },
+  "ritualrb.by": {
+    "reason": "no callback form",
+    "ts": "2026-05-07T22:26:26"
+  },
+  "zooport.by": {
+    "reason": "timeout",
+    "ts": "2026-05-07T22:26:26"
   }
 }

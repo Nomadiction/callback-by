@@ -83,6 +83,7 @@ Used from both UI and CLI.
 - `src.maintenance.verify_all()` checks each site with `tools.verifier.verify_url()`:
   - HTTP probe (alive?)
   - Playwright form probe (form found?)
+  - optional strict mode: test phone input and submit
 - Bad sites are removed from `data/sites.json` and appended to `data/excluded_domains.json`.
 
 CLI entry point: `python -m tools.verify_sites`.

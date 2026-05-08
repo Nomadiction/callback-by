@@ -18,7 +18,7 @@ except ImportError:  # older playwright
     TargetClosedError = PWError  # type: ignore[misc,assignment]
 
 from src.browser import browser_context
-from src.config import load_keywords, load_sites, save_sites
+from src.config import RunSettings, load_keywords, load_sites, save_sites
 from src.discovery import (
     EXCLUDE_DOMAINS,
     _domain_root,
@@ -55,6 +55,8 @@ async def verify_all(
     concurrency: int = 3,
     on_progress: VerifyProgress | None = None,
     save: bool = True,
+    test_submission: bool = False,
+    submission_settings: RunSettings | None = None,
 ) -> tuple[list[dict], list[tuple[dict, VerifyResult]]]:
     """Verify each site.
 
@@ -73,7 +75,13 @@ async def verify_all(
         async with httpx.AsyncClient(follow_redirects=True) as client:
             async def _one(entry: dict):
                 async with sem:
-                    res = await verify_url(entry["url"], ctx, client)
+                    res = await verify_url(
+                        entry["url"],
+                        ctx,
+                        client,
+                        test_submission=test_submission,
+                        submission_settings=submission_settings,
+                    )
                     counter["i"] += 1
                     pairs.append((entry, res))
                     if on_progress is not None:

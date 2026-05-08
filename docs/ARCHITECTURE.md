@@ -45,7 +45,7 @@
 4. Финал: все `SiteResult` пишутся в `logs/results_<timestamp>.csv` (UTF-8 BOM).
 
 ### Верификация и рост (`src.maintenance`)
-- **`verify_all`** — для каждого сайта `tools.verifier.verify_url` (HTTP-probe + `form_finder`). Нерабочие удаляются из `sites.json` и переносятся в `data/excluded_domains.json` через `src.exclusions.add_many`.
+- **`verify_all`** — для каждого сайта вызывает `tools.verifier.verify_url`: базово это HTTP-probe + поиск callback-формы, а в строгом режиме ещё и тест ввода номера с попыткой submit. Нерабочие сайты удаляются из `sites.json` и переносятся в `data/excluded_domains.json` через `src.exclusions.add_many`.
 - **`grow`** — поиск по `keywords.json::discovery_queries` через `src.discovery.search_query`: сначала `html.duckduckgo.com/html/` (httpx + BeautifulSoup, exponential backoff на 202), при пустом результате — фоллбэк на Bing HTML. Кандидаты, уже попавшие в исключения, пропускаются; новые верифицируются и попадают в `sites.json` только если живы и форма найдена. Отбракованные тут же дописываются в исключения.
 
 ### Чёрный список (`src.exclusions`)
@@ -69,7 +69,7 @@
 | `src/maintenance.py` | `verify_all`, `grow` — общая логика для UI и CLI |
 | `src/runner.py` | Оркестратор рассылки (по сайтам, паузы, сбор `SiteResult`) |
 | `src/result.py` | `SiteResult` + `Status` enum + CSV-writer |
-| `tools/verifier.py` | `verify_url` (HTTP probe + form probe), общий движок верификации |
+| `tools/verifier.py` | `verify_url` (HTTP probe + form probe, optional strict submit test), общий движок верификации |
 | `tools/verify_sites.py` | CLI-обёртка над `verify_all` |
 | `tools/grow_list.py` | CLI-обёртка над `grow` |
 

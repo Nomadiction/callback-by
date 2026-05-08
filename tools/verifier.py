@@ -1,4 +1,5 @@
-"""Общая логика верификации: жив ли домен и есть ли callback-форма.
+"""Общая логика верификации: жив ли домен, есть ли callback-форма,
+и при необходимости проходит ли тест ввода номера и submit.
 
 Используется и в verify_sites.py, и в grow_list.py.
 """
@@ -11,7 +12,10 @@ from urllib.parse import urlparse
 import httpx
 from playwright.async_api import BrowserContext, TimeoutError as PWTimeoutError
 
+from src.config import RunSettings
+from src.form_filler import submit_form
 from src.form_finder import find_form, has_captcha
+from src.result import Status
 
 PROBE_TIMEOUT = 8.0
 PAGE_TIMEOUT_MS = 15_000  # Оптимизирован таймаут
@@ -29,11 +33,18 @@ class VerifyResult:
     url: str
     alive: bool = False
     form_found: bool = False
+    phone_sent: bool = False
+    submit_ok: bool = False
+    submission_checked: bool = False
     reason: str = ""
 
     @property
     def good(self) -> bool:
-        return self.alive and self.form_found
+        if not (self.alive and self.form_found):
+            return False
+        if not self.submission_checked:
+            return True
+        return self.phone_sent and self.submit_ok
 
 
 def _normalize_url(url: str) -> str:
@@ -103,6 +114,9 @@ async def verify_url(
     url: str,
     ctx: BrowserContext,
     client: httpx.AsyncClient,
+    *,
+    test_submission: bool = False,
+    submission_settings: RunSettings | None = None,
 ) -> VerifyResult:
     norm = _normalize_url(url)
     res = VerifyResult(url=norm)
@@ -113,6 +127,57 @@ async def verify_url(
     res.form_found, form_reason = await probe_form(norm, ctx)
     if not res.form_found:
         res.reason = form_reason
+        return res
+    if not test_submission:
+        return res
+    if submission_settings is None or not submission_settings.phone:
+        res.reason = "submission test requires phone"
+        return res
+    res.submission_checked = True
+
+    page = await ctx.new_page()
+    page.set_default_timeout(submission_settings.per_site_timeout_ms)
+    try:
+        try:
+            await page.goto(
+                norm,
+                wait_until="domcontentloaded",
+                timeout=submission_settings.per_site_timeout_ms,
+            )
+        except PWTimeoutError:
+            res.reason = "page timeout"
+            return res
+        except Exception as e:
+            res.reason = f"goto: {type(e).__name__}"
+            return res
+        try:
+            await page.wait_for_load_state("networkidle", timeout=4000)
+        except PWTimeoutError:
+            pass
+        handle = await find_form(page)
+        if handle is None:
+            res.form_found = False
+            res.reason = "no callback form"
+            return res
+        status, phone_sent, _msg_sent, err = await submit_form(
+            page,
+            handle,
+            submission_settings.phone,
+            submission_settings.message,
+        )
+        res.phone_sent = phone_sent
+        res.submit_ok = status in (Status.SUCCESS, Status.SUBMITTED)
+        if not res.phone_sent:
+            res.reason = err or "phone input failed"
+        elif not res.submit_ok:
+            res.reason = err or status.value
+        else:
+            res.reason = status.value
+    finally:
+        try:
+            await page.close()
+        except Exception:
+            pass
     return res
 
 

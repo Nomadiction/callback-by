@@ -10,21 +10,6 @@
     "enabled": true
   },
   {
-    "url": "https://gippo.by",
-    "category": "grocery",
-    "enabled": true
-  },
-  {
-    "url": "https://pinskdrev.by",
-    "category": "furniture",
-    "enabled": true
-  },
-  {
-    "url": "https://e-pos.by",
-    "category": "services",
-    "enabled": true
-  },
-  {
     "url": "https://zvonko.by",
     "category": "discovered",
     "enabled": true
@@ -125,11 +110,6 @@
     "enabled": true
   },
   {
-    "url": "https://mikon.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
     "url": "https://3dpotolok.by",
     "category": "discovered",
     "enabled": true
@@ -165,11 +145,6 @@
     "enabled": true
   },
   {
-    "url": "https://imperiacoffee.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
     "url": "https://postplus.by",
     "category": "discovered",
     "enabled": true
@@ -181,11 +156,6 @@
   },
   {
     "url": "https://toroka.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://minsk-lida.by",
     "category": "discovered",
     "enabled": true
   },
@@ -206,11 +176,6 @@
   },
   {
     "url": "https://anmix.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://alfa-mebel.by",
     "category": "discovered",
     "enabled": true
   },
@@ -246,11 +211,6 @@
   },
   {
     "url": "https://vsemaster.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://remont-7.by",
     "category": "discovered",
     "enabled": true
   },
@@ -321,11 +281,6 @@
   },
   {
     "url": "https://i-tours.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://gruzoboy.by",
     "category": "discovered",
     "enabled": true
   },
@@ -440,11 +395,6 @@
     "enabled": true
   },
   {
-    "url": "https://24print.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
     "url": "https://ksen-ri.by",
     "category": "discovered",
     "enabled": true
@@ -496,11 +446,6 @@
   },
   {
     "url": "https://sante.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://evaclinic.by",
     "category": "discovered",
     "enabled": true
   },
@@ -590,11 +535,6 @@
     "enabled": true
   },
   {
-    "url": "https://doctorprofi.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
     "url": "https://resursmed.by",
     "category": "discovered",
     "enabled": true
@@ -636,11 +576,6 @@
   },
   {
     "url": "https://skinexpert.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://zroba.by",
     "category": "discovered",
     "enabled": true
   },
@@ -705,11 +640,6 @@
     "enabled": true
   },
   {
-    "url": "https://ritualrb.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
     "url": "https://ritual-help.by",
     "category": "discovered",
     "enabled": true
@@ -736,16 +666,6 @@
   },
   {
     "url": "https://8angelov.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://zooport.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://zapomnim.by",
     "category": "discovered",
     "enabled": true
   },
@@ -801,11 +721,6 @@
   },
   {
     "url": "https://buhexpert.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://profiked.by",
     "category": "discovered",
     "enabled": true
   },
@@ -911,11 +826,6 @@
   },
   {
     "url": "https://organizaciya-pohoron.by",
-    "category": "discovered",
-    "enabled": true
-  },
-  {
-    "url": "https://ritual-minsk.by",
     "category": "discovered",
     "enabled": true
   },

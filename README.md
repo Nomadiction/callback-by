@@ -70,11 +70,16 @@ py -3.12 -m venv .venv
 # B. Полная проверка — удаляет нерабочие сайты, копит в исключения
 .\.venv\Scripts\python.exe -m tools.verify_sites --concurrency 4
 
+# B2. Строгая проверка — ещё и тестирует ввод номера и submit
+.\.venv\Scripts\python.exe -m tools.verify_sites --strict --phone "+375291234567" --concurrency 4
+
 # C. Принудительная перепроверка ранее отбракованных доменов
 .\.venv\Scripts\python.exe -m tools.verify_sites --rerun-excluded --concurrency 4
 ```
 
-Что делает: для каждого сайта в `data/sites.json` — HTTP GET (жив ли домен) + Playwright/`form_finder` (есть ли callback-форма). Сайты без формы или мёртвые **удаляются из `sites.json`** и записываются в `data/excluded_domains.json` с причиной и датой — при росте списка они пропускаются и не тратят время на повторную проверку. `--concurrency N` — сколько проверок параллельно (3 по умолчанию). `--rerun-excluded` сбрасывает исключения перед запуском.
+Что делает: для каждого сайта в `data/sites.json` — HTTP GET (жив ли домен) + Playwright/`form_finder` (есть ли callback-форма). В строгом режиме дополнительно выполняются реальный ввод тестового номера и попытка submit. Сайты без формы, мёртвые, не принимающие номер или не проходящие submit **удаляются из `sites.json`** и записываются в `data/excluded_domains.json` с причиной и датой. `--concurrency N` — сколько проверок параллельно (3 по умолчанию). `--rerun-excluded` сбрасывает исключения перед запуском.
+
+После каждого CLI-прогона в `logs/` сохраняется отдельный CSV-отчёт вида `verify_results_<timestamp>.csv` с полями `url`, `alive`, `form_found`, `submission_checked`, `phone_sent`, `submit_ok`, `good`, `reason`, `timestamp`.
 
 ### 3. Рост списка до целевого числа
 
@@ -117,6 +122,7 @@ py -3.12 -m venv .venv
 
 - `logs/run.log` — структурированный лог (ошибки, отладка).
 - `logs/results_<timestamp>.csv` — результат каждого прогона. UTF-8 with BOM, открывается в Excel без перекодировки.
+- `logs/verify_results_<timestamp>.csv` — подробный отчёт по верификации сайтов, включая strict verify-поля.
 - `data/sites.json` — рабочий список: только то, что прошло верификацию.
 - `data/excluded_domains.json` — отбракованные домены с причиной и датой. Управление — в UI на вкладке «Обслуживание» (фильтр, разблокировка отдельного домена, очистка списка).
 

@@ -10,18 +10,77 @@ from .result import Status
 _SUCCESS_HINTS: list[str] = load_keywords()["success_indicators"]
 
 
+async def _set_input_value(input_locator, value: str) -> bool:
+    try:
+        await input_locator.evaluate(
+            """
+            (el, nextValue) => {
+                el.focus();
+                if (typeof el.select === 'function') {
+                    el.select();
+                }
+                el.value = '';
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.value = nextValue;
+                el.dispatchEvent(new Event('input', { bubbles: true }));
+                el.dispatchEvent(new Event('change', { bubbles: true }));
+                el.dispatchEvent(new Event('blur', { bubbles: true }));
+            }
+            """,
+            value,
+            timeout=2000,
+        )
+        return True
+    except Exception:
+        return False
+
+
 async def _try_fill_phone(handle: FormHandle, phone_raw: str) -> bool:
     for value in variants(phone_raw):
         try:
             await handle.phone_input.click(timeout=2000)
-            await handle.phone_input.fill("", timeout=1500)
-            await handle.phone_input.type(value, delay=30)
+        except Exception:
+            pass
+        try:
+            await handle.phone_input.press("Control+a", timeout=800)
+            await handle.phone_input.press("Delete", timeout=800)
+        except Exception:
+            pass
+
+        for strategy in (
+            lambda: handle.phone_input.fill("", timeout=1500),
+            lambda: handle.phone_input.type(value, delay=30),
+        ):
+            try:
+                await strategy()
+            except Exception:
+                pass
+        try:
             current = await handle.phone_input.input_value(timeout=1500)
+        except Exception:
+            current = ""
+        digits_in = "".join(c for c in current if c.isdigit())
+        if len(digits_in) >= 9:
+            return True
+
+        if await _set_input_value(handle.phone_input, value):
+            try:
+                current = await handle.phone_input.input_value(timeout=1500)
+            except Exception:
+                current = ""
             digits_in = "".join(c for c in current if c.isdigit())
             if len(digits_in) >= 9:
                 return True
-        except Exception:
-            continue
+
+        digits_only = "".join(c for c in value if c.isdigit())
+        if digits_only and await _set_input_value(handle.phone_input, digits_only):
+            try:
+                current = await handle.phone_input.input_value(timeout=1500)
+            except Exception:
+                current = ""
+            digits_in = "".join(c for c in current if c.isdigit())
+            if len(digits_in) >= 9:
+                return True
     return False
 
 
@@ -62,9 +121,12 @@ async def submit_form(
     msg_ok = await _try_fill_message(handle, message)
 
     try:
-        await handle.submit_button.click(timeout=4000)
-    except Exception as e:
-        return Status.FAILED, True, msg_ok, f"submit click: {e!r}"
+        await handle.submit_button.evaluate("el => el.click()", timeout=2000)
+    except Exception:
+        try:
+            await handle.submit_button.click(timeout=4000, force=True, no_wait_after=True)
+        except Exception as e:
+            return Status.FAILED, True, msg_ok, f"submit click: {e!r}"
 
     if await _detect_success(page):
         return Status.SUCCESS, True, msg_ok, ""

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import asyncio
 from dataclasses import dataclass
+from datetime import datetime
 from urllib.parse import urlparse
 
 import httpx
@@ -37,6 +38,7 @@ class VerifyResult:
     submit_ok: bool = False
     submission_checked: bool = False
     reason: str = ""
+    timestamp: str = ""
 
     @property
     def good(self) -> bool:
@@ -119,7 +121,7 @@ async def verify_url(
     submission_settings: RunSettings | None = None,
 ) -> VerifyResult:
     norm = _normalize_url(url)
-    res = VerifyResult(url=norm)
+    res = VerifyResult(url=norm, timestamp=datetime.now().isoformat(timespec="seconds"))
     res.alive, alive_reason = await probe_alive(norm, client)
     if not res.alive:
         res.reason = alive_reason

@@ -24,7 +24,7 @@ from src.discovery import (
     _domain_root,
     search_query,
 )
-from src.exclusions import add_many as exclude_many, excluded_domains
+from src.exclusions import add_many_with_ts as exclude_many_with_ts, excluded_domains
 from tools.verifier import VerifyResult, verify_url
 
 log = logging.getLogger(__name__)
@@ -91,7 +91,7 @@ async def verify_all(
 
     by_url = {(e["url"]).rstrip("/"): r for e, r in pairs}
     new_list: list[dict] = []
-    to_exclude: list[tuple[str, str]] = []
+    to_exclude: list[tuple[str, str, str | None]] = []
     for entry in sites:
         key = entry["url"].rstrip("/")
         res = by_url.get(key)
@@ -105,11 +105,13 @@ async def verify_all(
         else:
             domain = _domain_root(entry["url"])
             if domain:
-                to_exclude.append((domain, res.reason or "verification failed"))
+                to_exclude.append(
+                    (domain, res.reason or "verification failed", getattr(res, "timestamp", None))
+                )
 
     if save:
         save_sites(new_list)
-        exclude_many(to_exclude)
+        exclude_many_with_ts(to_exclude)
     return new_list, pairs
 
 

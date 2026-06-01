@@ -41,6 +41,18 @@ def add_many(items: list[tuple[str, str]]) -> None:
     save_exclusions(d)
 
 
+def add_many_with_ts(items: list[tuple[str, str, str | None]]) -> None:
+    if not items:
+        return
+    d = load_exclusions()
+    now = datetime.now().isoformat(timespec="seconds")
+    for domain, reason, ts in items:
+        if not domain:
+            continue
+        d[domain] = {"reason": reason, "ts": ts or now}
+    save_exclusions(d)
+
+
 def remove(domain: str) -> bool:
     d = load_exclusions()
     if domain in d:
